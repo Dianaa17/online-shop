@@ -1,0 +1,9 @@
+<div class="d-flex justify-content-center">
+  <carousel class="my-5" cellsToShow="2" height="200" width="800" arrowsTheme="dark">
+    <div *ngFor="let product of topProducts | async"  class="carousel-cell my-3">
+      <img height="50%" class="card-img-top" src="https://nodejs-final-mysql.herokuapp.com{{product.image}}"
+           routerLink="/product/{{product._id}}">
+    </div>
+
+  </carousel>
+</div>

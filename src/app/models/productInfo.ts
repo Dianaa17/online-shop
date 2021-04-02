@@ -1,15 +1,18 @@
+import {Review} from './review';
+
 export class ProductInfo {
-  public _id: string;
+  _id: string;
   rating: number;
   name: string;
   price: number;
   countInStock: number;
   description: string;
-  public image: string;
+  image: string;
   category: string;
   brand: string;
   createdAt: string;
   updatedAt: string;
+  reviews: Array<Review>;
 
 
   constructor() {

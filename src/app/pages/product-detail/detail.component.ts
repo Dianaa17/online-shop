@@ -15,8 +15,7 @@ export class DetailComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private route: ActivatedRoute,
-    private router: Router
+    private route: ActivatedRoute
   ) {
   }
 
@@ -31,6 +30,7 @@ export class DetailComponent implements OnInit {
     this.productService.getDetail(id).subscribe(
       prod => {
         this.productInfo = prod;
+        console.log(this.productInfo);
       },
       _ => console.log('Get Cart Failed')
     );

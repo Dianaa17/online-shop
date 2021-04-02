@@ -10,6 +10,7 @@ import {Router} from '@angular/router';
 export class NavigationComponent implements OnInit, OnDestroy {
   name: string;
   root = '/';
+  searchSubject: string;
 
   constructor(private router: Router,
   ) {
@@ -21,5 +22,15 @@ export class NavigationComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+  }
+
+  onClick(): void {
+    console.log(this.searchSubject);
+    this.router.navigate(['/search-product', {key: this.searchSubject}]);
+
+  }
+
+  updateSearch(searchTextValue: string) {
+    this.searchSubject = searchTextValue;
   }
 }

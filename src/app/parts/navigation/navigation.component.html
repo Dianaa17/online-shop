@@ -1,25 +1,23 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
-  <a class="navbar-brand" [routerLink]="root">
-    Shop
-  </a>
-
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-
-
-    <div class="navbar-nav ml-auto">
-
-      <a class="nav-item nav-link " routerLink="/login">
-        Sign In
-      </a>
-      <a class="nav-item nav-link " routerLink="/register">
-        Sign Up
+<nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+  <div class="container-fluid row">
+    <div class="col-1 text-center">
+      <a class="navbar-brand text-light" [routerLink]="root">
+        SHOP
       </a>
 
     </div>
+    <div class="col-6"></div>
+    <div class="col-5">
+      <div class="row">
+        <div class="col-9">
+          <input class="form-control" type="search" placeholder="Search" aria-label="Search"
+                 (keyup)="updateSearch($event.target.value)">
+        </div>
+
+        <button class="btn btn-success mb-2 col-3" type="submit" (click)="onClick()">Search</button>
+      </div>
+
+    </div>
+
   </div>
 </nav>

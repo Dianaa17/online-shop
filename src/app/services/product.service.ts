@@ -24,7 +24,12 @@ export class ProductService {
       );
   }
 
-  getDetail(id: String): Observable<ProductInfo> {
+  searchProducts(keyword: string): Observable<any> {
+    const url = `${this.productUrl}?keyword=${keyword}&pageNumber=${1}`;
+    return this.http.get(url);
+  }
+
+  getDetail(id: string): Observable<ProductInfo> {
     const url = `${this.productUrl}/${id}`;
     return this.http.get<ProductInfo>(url).pipe(
       catchError(_ => {
@@ -42,21 +47,5 @@ export class ProductService {
         return of(new ProductInfo());
       })
     );
-  }
-
-  /**
-   * Handle Http operation that failed.
-   * Let the app continue.
-   * @param operation - name of the operation that failed
-   * @param result - optional value to return as the observable result
-   */
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-
-      console.error(error); // log to console instead
-
-      // Let the app keep running by returning an empty result.
-      return of(result as T);
-    };
   }
 }

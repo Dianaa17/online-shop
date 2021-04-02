@@ -1,7 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ProductService} from '../../services/product.service';
 import {ActivatedRoute} from '@angular/router';
-import {Subscription} from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
+import {ProductInfo} from '../../models/productInfo';
 
 @Component({
   selector: 'app-card',
@@ -13,6 +14,8 @@ export class CardComponent implements OnInit, OnDestroy {
 
   title: string;
   page: any;
+  p = 1;
+
   private paramSub: Subscription;
   private querySub: Subscription;
 
@@ -31,6 +34,7 @@ export class CardComponent implements OnInit, OnDestroy {
       this.update();
     });
 
+
   }
 
   ngOnDestroy(): void {
@@ -43,11 +47,11 @@ export class CardComponent implements OnInit, OnDestroy {
       const currentPage = +this.route.snapshot.queryParamMap.get('page');
       this.getProds(currentPage);
     } else {
-      this.getProds();
+      this.getProds(1);
     }
   }
 
-  getProds(page: number = 1) {
+  getProds(page: number) {
     if (this.route.snapshot.url.length === 1) {
       this.productService.getAllInPage(+page, '')
         .subscribe(p => {

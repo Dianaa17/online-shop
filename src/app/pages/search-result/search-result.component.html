@@ -1,5 +1,4 @@
-<app-top-product-slider></app-top-product-slider>
-<h1 align="center" class="display-4 mb-5">{{title}}</h1>
+<h1 align="center" class="display-4 mb-5">Result:</h1>
 
 <div class="row card-deck text-center">
   <div *ngFor="let products of page?.products | paginate: { itemsPerPage: 3, currentPage: p }" class="col-lg-4 ">
