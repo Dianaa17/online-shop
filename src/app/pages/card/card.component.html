@@ -1,0 +1,22 @@
+<h1 align="center" class="display-4 mb-5">{{title}}</h1>
+
+<div class="row card-deck text-center">
+  <div *ngFor="let products of page?.products" class="col-lg-4 ">
+    <div class="card mb-4">
+      <img height="50%" class="card-img-top" src="https://nodejs-final-mysql.herokuapp.com{{products.image}}" alt="{{products.name}}">
+      <div class="card-body">
+        <h4 class="card-title ">{{products.name}}</h4>
+        <div class="text-left">
+          <p class="card-test"><strong>Description: </strong>{{products.description}}</p>
+          <p class="card-text"><strong>Price: </strong>{{products.price | currency}}</p>
+          <p class="card-text"><strong>Stock: </strong>{{products.countInStock}}</p>
+        </div>
+        <br>
+        <a routerLink="/product/{{products._id}}"
+           class="btn btn-primary btn-lg"
+        >Get It!</a>
+      </div>
+    </div>
+  </div>
+</div>
+<app-pagination [currentPage]="page"></app-pagination>
